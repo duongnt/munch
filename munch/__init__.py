@@ -428,7 +428,7 @@ try:
         """ PyYAML support for Munches using the tag `!munch` and `!munch.Munch`.
 
             >>> import yaml
-            >>> yaml.load('''
+            >>> yaml.full_load('''
             ... Flow style: !munch.Munch { Clark: Evans, Brian: Ingerson, Oren: Ben-Kiki }
             ... Block style: !munch
             ...   Clark : Evans
@@ -502,7 +502,7 @@ try:
             return yaml.dump(self, **opts)
 
     def fromYAML(*args, **kwargs):
-        return munchify(yaml.load(*args, **kwargs))
+        return munchify(yaml.full_load(*args, **kwargs))
 
     Munch.toYAML = toYAML
     Munch.fromYAML = staticmethod(fromYAML)
